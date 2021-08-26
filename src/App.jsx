@@ -29,6 +29,11 @@ class App extends Component {
     ],
   };
 
+  inserirLivro = (livro) => {
+    livro.id = this.state.livros.length + 1;
+    this.setState({ livros: [...this.state.livros, livro] });
+  };
+
   render() {
     return (
       <Router>
@@ -39,7 +44,16 @@ class App extends Component {
             path="/"
             render={() => <TabelaLivros livros={this.state.livros} />}
           />
-          <Route exact path="/cadastrar" render={() => <CadastrarLivros />} />
+          <Route
+            exact
+            path="/cadastrar"
+            render={() => (
+              <CadastrarLivros
+                inserirLivro={this.inserirLivro}
+                livro={{ id: 0, isbn: "", titulo: "", autor: "" }}
+              />
+            )}
+          />
           <Route component={NotFound} />
         </Switch>
       </Router>
