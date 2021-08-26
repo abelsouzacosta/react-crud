@@ -1,11 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
     <div className="menu">
       <ul>
         <li>
-          <a href="#">Home</a>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/cadastrar">Cadastrar</Link>
         </li>
       </ul>
     </div>
