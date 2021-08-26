@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div className="App">
         <Menu />
-        <TabelaLivros />
+        <TabelaLivros livros={this.state.livros} />
       </div>
     );
   }
