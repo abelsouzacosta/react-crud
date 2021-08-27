@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
-class CadastrarLivro extends Component {
+class CadastrarLivros extends Component {
   state = {
     livro: {
       id: this.props.livro.id,
@@ -14,7 +14,11 @@ class CadastrarLivro extends Component {
 
   handleLivroForm = (e) => {
     e.preventDefault(); // impedir de recarregar a página
-    this.props.inserirLivro(this.state.livro);
+    if (this.props.editarLivro) {
+      this.props.editarLivro(this.state.livro);
+    } else {
+      this.props.inserirLivro(this.state.livro);
+    }
     this.setState({ redirecionar: true });
   };
 
@@ -92,4 +96,4 @@ class CadastrarLivro extends Component {
   }
 }
 
-export default CadastrarLivro;
+export default CadastrarLivros;
